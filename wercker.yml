@@ -1,7 +1,9 @@
-box: papix/perl5.18@0.0.1
-
 build:
     steps:
+      - wercker/install-packages@0.0.4
+
+      - install-packages:
+        packages: cmake
       
       - add-to-known_hosts:
           hostname: tk2-213-16244.vs.sakura.ne.jp
@@ -9,12 +11,14 @@ build:
       - mktemp:
           envvar: PRIVATEKEY_PATH    
 
+      # werckerで設定したsshの秘密鍵の環境変数を基に秘密鍵を生成
       - create-file:
           name: Create private key
           filename: $PRIVATEKEY_PATH
-          content: $DEPROY_KEYS_PRIVATE
+          content: $DEPROY_KEY_PRIVATE
           overwrite: true
 
+      # デプロイ前に不要なファイルを削除
       - script: 
           name: Remove no need assets
           code: |
@@ -23,6 +27,7 @@ build:
            rm -rf hexo-rpp-negativewords.txt
            rm -rf wercker.yml
 
+      # 「/pipeline/source/」ディレクトリにソースがあるのでそれをtar + sshでサーバーに転送
       - script:
           name: Transfer data
           code: |
