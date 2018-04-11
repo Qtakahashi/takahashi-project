@@ -4,6 +4,9 @@ build:
 
       - install-packages:
         packages: cmake
+
+deploy:
+    steps:
       
       - add-to-known_hosts:
           hostname: tk2-213-16244.vs.sakura.ne.jp
