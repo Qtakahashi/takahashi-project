@@ -3,17 +3,17 @@
 	"version": "1.0.0",
 	"private": true,
 	"scripts": {
-	  "test": "npm run lint && npm run cover",
-	  "lint": "eslint *.js",
-	  "_comment": "istanbulコマンドでmochaも実行している",
-	  "cover": "NODE_ENV=test istanbul cover --report text _mocha",
-	  "mocha": "NODE_ENV=test mocha",
-	  "start": "node ./app/bin/www"
+		"test": "npm run lint && npm run cover",
+		"lint": "eslint *.js",
+		"_comment": "istanbulコマンドでmochaも実行している",
+		"cover": "NODE_ENV=test istanbul cover --report text _mocha",
+		"mocha": "NODE_ENV=test mocha",
+		"start": "node ./app/bin/www"
 	},
 	"devDependencies": {
-	  "eslint": "^2.5.3",
-	  "istanbul": "^0.4.3",
-	  "mocha": "^2.4.5",
-	  "should": "^8.3.0"
+		"eslint": "^2.5.3",
+		"istanbul": "^0.4.3",
+		"mocha": "^2.5.3",
+		"should": "^8.3.0"
 	}
-  }
+}
