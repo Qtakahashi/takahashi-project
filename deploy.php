@@ -6,7 +6,7 @@ require 'recipe/composer.php';
 
 // デプロイ先
 server('production', 'tk2-213-16244.vs.sakura.ne.jp', 22)
-  ->user('Yuto')
+  ->user('yuto')
   ->identityFile()
   ->forwardAgent()
   ->env('deploy_path', '/home/yuto/');
